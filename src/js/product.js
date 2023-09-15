@@ -6,12 +6,19 @@ const dataSource = new ProductData("tents");
 const getCart = () => getLocalStorage("so-cart") || [];
 
 function addProductToCart(product) {
-  setLocalStorage("so-cart", [...getCart, product]);
+  const cart = getCart();
+  cart.push(product);
+  setLocalStorage("so-cart", cart);
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
   addProductToCart(product);
+
+  // show success message
+  const addToCartButton = document.querySelector("#addToCart");
+
+  addToCartButton.innerHTML = "in your Cart!";
 }
 
 // add listener to Add to Cart button
