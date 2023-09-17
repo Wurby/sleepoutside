@@ -18,7 +18,7 @@ async function addToCartHandler(e) {
   // show success message
   const addToCartButton = document.querySelector("#addToCart");
 
-  addToCartButton.innerHTML = "in your Cart!";
+  addToCartButton.innerHTML = "Product Added.";
 }
 
 // add listener to Add to Cart button
